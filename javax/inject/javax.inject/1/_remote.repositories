@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri Aug 05 12:27:39 MSK 2022
+javax.inject-1.jar>central=
+javax.inject-1.pom>central=
+javax.inject-1.jar>coral-efr=
+javax.inject-1.pom>coral-efr=

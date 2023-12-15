@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>ru.softlab.efr.common</groupId>
+        <artifactId>efr-parent-pom</artifactId>
+        <version>2.1</version>
+    </parent>
+
+    <groupId>ru.softlab.efr.infrastructure</groupId>
+
+    <artifactId>transport</artifactId>
+    <version>4.1.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>transport-support</module>
+        <module>transport-test</module>
+        <module>transport-test-app</module>
+    </modules>
+    <scm>
+        <url>http://git.dos.softlab.ru/RSHB/EFR/infrastructure/transport</url>
+        <developerConnection>scm:git:git@git.dos.softlab.ru:RSHB/EFR/infrastructure/transport.git</developerConnection>
+        <tag>v4.1.0</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>coral</id>
+            <name>coral</name>
+            <url>http://coral:18088/repository/efr-infrastructure</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <awaitility.version>3.1.2</awaitility.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>coral</id>
+            <name>coral</name>
+            <url>http://coral:18088/repository/efr</url>
+        </repository>
+    </repositories>
+
+</project>

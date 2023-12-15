@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri Aug 05 12:28:00 MSK 2022
+javax.el-api-2.2.5.jar>coral=
+javax.el-api-2.2.5.jar>coral-efr=
+javax.el-api-2.2.5.pom>coral-efr=
+javax.el-api-2.2.5.pom>coral=

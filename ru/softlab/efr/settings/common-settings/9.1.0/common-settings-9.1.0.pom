@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>ru.softlab.efr.common</groupId>
+        <artifactId>efr-parent-pom</artifactId>
+        <version>2.2</version>
+    </parent>
+
+    <groupId>ru.softlab.efr.settings</groupId>
+    <artifactId>common-settings</artifactId>
+    <version>9.1.0</version>
+    <packaging>pom</packaging>
+    <name>Микросервис общих/глобальных настроек</name>
+
+    <modules>
+        <module>common-settings-app</module>
+        <module>common-settings-model</module>
+        <module>common-settings-client</module>
+        <module>common-settings-support</module>
+    </modules>
+
+    <scm>
+        <url>http://git.dos.softlab.ru/RSHB/EFR/common/common-settings</url>
+        <developerConnection>scm:git:git@git.dos.softlab.ru:RSHB/EFR/common/common-settings.git</developerConnection>
+        <tag>v9.1.0</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>coral</id>
+            <name>coral</name>
+            <url>http://coral:18088/repository/efr-common</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <efr.transport.version>4.1.0</efr.transport.version>
+        <efr.infrastructure.logging-api.version>2.0.0</efr.infrastructure.logging-api.version>  <!--Используется в тестах и приложении-->
+        <efr.infrastructure.logging.version>3.1.0</efr.infrastructure.logging.version>  <!--Используется в тестах и приложении-->
+        <efr.utilities.version>3.3.0</efr.utilities.version>
+        <efr.discovery.version>4.1.0</efr.discovery.version>
+        <swagger-backend-generator.version>6.0.0</swagger-backend-generator.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>coral</id>
+            <name>coral</name>
+            <url>http://coral:18088/repository/efr</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>efr-plugin-repo</id>
+            <url>http://coral:18088/repository/efr-common</url>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

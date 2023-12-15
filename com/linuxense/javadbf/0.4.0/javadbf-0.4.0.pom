@@ -1,0 +1,28 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.linuxense</groupId>
+  <artifactId>javadbf</artifactId>
+  <packaging>jar</packaging>
+  <name>JavaDBF</name>
+  <version>0.4.0</version>
+  <description>Java library for reading and writing Xbase (dBase/DBF) files.</description>
+  <url>http://sarovar.org/projects/javadbf/</url>
+  <licenses>
+    <license>
+      <name>GNU Lesser General Public License (LGPL)</name>
+      <url>http://www.gnu.org/licenses/lgpl.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <url>http://sarovar.org/plugins/scmcvs/cvsweb.php/?cvsroot=javadbf</url>
+    <connection>http://sarovar.org/plugins/scmcvs/cvsweb.php/?cvsroot=javadbf</connection>
+  </scm>
+  <developers>
+    <developer>
+      <id>Anil</id>
+      <name>Anil Kumar</name>
+      <email>anil@linuxense.com</email>
+    </developer>
+  </developers>
+</project>

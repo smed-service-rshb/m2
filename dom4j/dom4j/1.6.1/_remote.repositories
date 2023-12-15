@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri Aug 05 12:28:00 MSK 2022
+dom4j-1.6.1.jar>coral=
+dom4j-1.6.1.jar>coral-efr=
+dom4j-1.6.1.pom>coral-efr=
+dom4j-1.6.1.pom>coral=

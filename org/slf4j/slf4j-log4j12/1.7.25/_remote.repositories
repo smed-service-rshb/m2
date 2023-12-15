@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri Aug 05 12:27:00 MSK 2022
+slf4j-log4j12-1.7.25.jar>coral-efr=
+slf4j-log4j12-1.7.25.pom>coral-efr=
+slf4j-log4j12-1.7.25.pom>coral=
+slf4j-log4j12-1.7.25.jar>coral=

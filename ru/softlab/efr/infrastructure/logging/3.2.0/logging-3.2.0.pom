@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>ru.softlab.efr.common</groupId>
+        <artifactId>efr-parent-pom</artifactId>
+        <version>2.2</version>
+    </parent>
+
+    <groupId>ru.softlab.efr.infrastructure</groupId>
+    <artifactId>logging</artifactId>
+    <version>3.2.0</version>
+    <packaging>pom</packaging>
+    <name>efr-logging</name>
+
+    <modules>
+        <module>logging-dbo-stub</module>
+        <module>logging-support</module>
+        <module>logging-test-support</module>
+        <module>test-apps</module>
+    </modules>
+
+    <scm>
+        <url>http://git.dos.softlab.ru/RSHB/EFR/infrastructure/logging</url>
+        <developerConnection>scm:git:git@git.dos.softlab.ru:RSHB/EFR/infrastructure/logging.git</developerConnection>
+        <tag>v3.2.0</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>coral</id>
+            <name>coral</name>
+            <url>http://coral:18088/repository/efr-infrastructure</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <efr.infrastructure.transport.version>4.1.0</efr.infrastructure.transport.version>
+        <efr.infrastructure.logging-api.version>2.0.0</efr.infrastructure.logging-api.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>coral</id>
+            <name>coral</name>
+            <url>http://coral:18088/repository/efr</url>
+        </repository>
+    </repositories>
+</project>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>common-settings</artifactId>
+        <groupId>ru.softlab.efr.settings</groupId>
+        <version>9.1.0</version>
+    </parent>
+
+    <artifactId>common-settings-client</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!--EFR-->
+        <dependency>
+            <groupId>ru.softlab.efr.settings</groupId>
+            <artifactId>common-settings-model</artifactId>
+            <version>9.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.softlab.efr.common</groupId>
+            <artifactId>utilities</artifactId>
+            <version>${efr.utilities.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.softlab.efr.infrastructure</groupId>
+            <artifactId>logging-api</artifactId>
+            <version>${efr.infrastructure.logging-api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.softlab.efr.infrastructure</groupId>
+            <artifactId>transport-support</artifactId>
+            <version>${efr.transport.version}</version>
+        </dependency>
+
+        <!-- TESTS -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.softlab.efr.infrastructure</groupId>
+            <artifactId>logging-test-support</artifactId>
+            <version>${efr.infrastructure.logging.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.swagger</groupId>
+                <artifactId>efr-swagger-codegen-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/../api.yaml</inputSpec>
+                            <language>ru.softlab.efr.common.swagger.generator.backend.ClientCodegen</language>
+                            <modelPackage>ru.softlab.efr.settings.model</modelPackage>
+                            <apiPackage>ru.softlab.efr.settings.client</apiPackage>
+                            <output>${project.basedir}</output>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>ru.softlab.efr</groupId>
+                        <artifactId>swagger-backend-generator</artifactId>
+                        <version>${swagger-backend-generator.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+</project>

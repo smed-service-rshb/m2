@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>ru.softlab.efr.common</groupId>
+        <artifactId>efr-parent-pom</artifactId>
+        <version>2.0</version>
+    </parent>
+
+    <artifactId>bpm</artifactId>
+    <version>6.3.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>bpm-aggregation-service</module>
+        <module>bpm-client</module>
+        <module>bpm-support</module>
+        <module>bpm-test</module>
+        <module>bpm-test-apps</module>
+        <module>bpm-model</module>
+    </modules>
+
+    <scm>
+        <url>http://git.dos.softlab.ru/RSHB/EFR/common/bpm</url>
+        <developerConnection>scm:git:git@git.dos.softlab.ru:RSHB/EFR/common/bpm.git</developerConnection>
+        <tag>v6.3.0</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>coral</id>
+            <name>coral</name>
+            <url>http://coral:18088/repository/efr-common</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <camunda.version>7.8.0</camunda.version>
+        <camunda-bpm-assert.version>2.0-alpha2</camunda-bpm-assert.version>
+
+        <efr.utilities.version>3.2.0</efr.utilities.version>
+        <transport-support.version>2.1.0</transport-support.version>
+        <auth-service-support.version>7.0.0</auth-service-support.version>
+        <efr.swagger.backend.generator.version>1.1.0</efr.swagger.backend.generator.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>coral</id>
+            <name>coral</name>
+            <url>http://coral:18088/repository/efr</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>efr-plugin-repo</id>
+            <url>http://coral:18088/repository/efr-common</url>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

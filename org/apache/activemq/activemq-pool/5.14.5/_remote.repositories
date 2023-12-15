@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri Aug 05 12:28:45 MSK 2022
+activemq-pool-5.14.5.jar>coral-efr=
+activemq-pool-5.14.5.pom>coral-efr=
+activemq-pool-5.14.5.pom>coral=
+activemq-pool-5.14.5.jar>coral=

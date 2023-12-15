@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Required for OSS maven repository deployment -->
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>9</version>
+    <!-- do not remove empty tag - http://jira.codehaus.org/browse/MNG-4687 -->
+    <relativePath />
+  </parent>
+
+  <groupId>org.camunda</groupId>
+  <artifactId>camunda-release-parent</artifactId>
+  <version>2.5</version>
+  <packaging>pom</packaging>
+  <name>camunda - Release Parent Pom</name>
+
+  <description>
+    This pom defines the required plugins and profiles to allow a camunda release build.
+    Inherit this pom when you want to release your project into the camunda nexus and/or maven central.
+  </description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- Avoid the message "[WARNING] Using platform encoding (UTF-8 actually) ... also for the failsafe plugin -->
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <!-- we use java 1.6 for our projects -->
+    <version.java>1.6</version.java>
+    <version.ejb>3.1</version.ejb>
+
+    <skip.camunda.release>false</skip.camunda.release>
+    <skip.central.release>false</skip.central.release>
+    <nexus.snapshot.repository>https://app.camunda.com/nexus/content/repositories/camunda-bpm-snapshots</nexus.snapshot.repository>
+    <nexus.release.repository>https://app.camunda.com/nexus/content/repositories/camunda-bpm</nexus.release.repository>
+    <do.deployAtEnd>false</do.deployAtEnd>
+
+    <plugin.version.clean>2.6</plugin.version.clean>
+    <plugin.version.source>2.3</plugin.version.source>
+    <plugin.version.compiler>3.1</plugin.version.compiler>
+    <plugin.version.jar>2.5</plugin.version.jar>
+    <plugin.version.javadoc>2.9.1</plugin.version.javadoc>
+    <plugin.version.maven-bundle>2.5.3</plugin.version.maven-bundle>
+
+    <plugin.version.deploy>2.8.2</plugin.version.deploy>
+    <plugin.version.assembly>2.4.1</plugin.version.assembly>
+    <plugin.version.ejb>2.4</plugin.version.ejb>
+    <plugin.version.war>2.4</plugin.version.war>
+    <plugin.version.ear>2.9.1</plugin.version.ear>
+    <plugin.version.rar>2.4</plugin.version.rar>
+    <plugin.version.gpg>1.4</plugin.version.gpg>
+    <plugin.version.release>2.5.1</plugin.version.release>
+    <plugin.version.nexus-staging>1.6.4</plugin.version.nexus-staging>
+  </properties>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>${plugin.version.clean}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${plugin.version.compiler}</version>
+          <configuration>
+            <source>${version.java}</source>
+            <target>${version.java}</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${plugin.version.jar}</version>
+          <configuration>
+            <useDefaultManifestFile>true</useDefaultManifestFile>
+            <archive>
+              <!-- explicitly specify manifestFile because otherwise it overrides the generated one from bundle-plugin -->
+              <manifest>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>${plugin.version.war}</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-ejb-plugin</artifactId>
+          <version>${plugin.version.ejb}</version>
+          <configuration>
+            <ejbVersion>${version.ejb}</ejbVersion>
+            <archive>
+              <manifest>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-rar-plugin</artifactId>
+          <version>${plugin.version.rar}</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-ear-plugin</artifactId>
+          <version>${plugin.version.ear}</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>${plugin.version.assembly}</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>${plugin.version.release}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${plugin.version.deploy}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>${plugin.version.nexus-staging}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${plugin.version.source}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${plugin.version.javadoc}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>${plugin.version.gpg}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>${plugin.version.maven-bundle}</version>
+          <extensions>true</extensions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>camunda-nexus</id>
+      <url>${nexus.snapshot.repository}</url>
+    </snapshotRepository>
+    <repository>
+      <id>camunda-nexus</id>
+      <url>${nexus.release.repository}</url>
+    </repository>
+  </distributionManagement>
+
+  <profiles>
+    <!-- activate this profile to release to maven central -->
+    <profile>
+      <id>sonatype-oss-release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>${plugin.version.source}</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>attach-test-sources</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>test-jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>${plugin.version.javadoc}</version>
+            <configuration>
+              <quiet>true</quiet>
+            </configuration>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${plugin.version.gpg}</version>
+            <configuration>
+              <passphrase>${gpg.passphrase}</passphrase>
+            </configuration>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <version>${plugin.version.deploy}</version>
+            <executions>
+              <execution>
+                <id>default-deploy</id>
+                <phase>deploy</phase>
+                <goals>
+                  <goal>deploy</goal>
+                </goals>
+                <configuration>
+                  <!-- change this, when https://jira.codehaus.org/browse/MDEPLOY-176 is fixed -->
+                  <deployAtEnd>${do.deployAtEnd}</deployAtEnd>
+                  <skip>${skip.camunda.release}</skip>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>${plugin.version.nexus-staging}</version>
+            <executions>
+              <execution>
+                <id>central-deploy</id>
+                <phase>deploy</phase>
+                <goals>
+                  <goal>deploy</goal>
+                </goals>
+                <configuration>
+                  <serverId>central</serverId>
+                  <nexusUrl>https://oss.sonatype.org</nexusUrl>
+                  <skipNexusStagingDeployMojo>${skip.central.release}</skipNexusStagingDeployMojo>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <organization>
+    <name>camunda services GmbH</name>
+    <url>http://www.camunda.com</url>
+  </organization>
+
+  <url>http://www.camunda.org</url>
+
+  <developers>
+    <developer>
+      <id>camunda.org</id>
+      <name>camunda BPM Community</name>
+      <organization>camunda.org</organization>
+      <organizationUrl>http://camunda.org</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <url>https://github.com/camunda/camunda-release-parent</url>
+    <connection>scm:git:git@github.com:camunda/camunda-release-parent.git</connection>
+    <developerConnection>scm:git:git@github.com:camunda/camunda-release-parent.git</developerConnection>
+    <tag>2.5</tag>
+  </scm>
+
+  <issueManagement>
+    <system>Jira</system>
+    <url>https://app.camunda.com/jira/browse/CAM/</url>
+  </issueManagement>
+
+</project>

@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri Aug 05 12:27:10 MSK 2022
+jackson-annotations-2.9.0.jar>coral-efr=
+jackson-annotations-2.9.0.pom>coral=
+jackson-annotations-2.9.0.jar>coral=
+jackson-annotations-2.9.0.pom>coral-efr=

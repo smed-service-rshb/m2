@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri Aug 05 13:06:16 MSK 2022
+hamcrest-all-1.3.jar>coral-efr=
+hamcrest-all-1.3.pom>coral=
+hamcrest-all-1.3.pom>coral-efr=
+hamcrest-all-1.3.jar>coral=

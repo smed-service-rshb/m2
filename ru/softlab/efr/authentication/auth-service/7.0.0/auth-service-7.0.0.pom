@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>ru.softlab.efr.common</groupId>
+        <artifactId>efr-parent-pom</artifactId>
+        <version>2.0</version>
+    </parent>
+
+    <groupId>ru.softlab.efr.authentication</groupId>
+    <artifactId>auth-service</artifactId>
+    <version>7.0.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>auth-service-model</module>
+        <module>auth-service-client</module>
+        <module>auth-service-app</module>
+        <module>auth-service-support</module>
+        <module>auth-service-test</module>
+        <module>test-apps</module>
+    </modules>
+
+    <scm>
+        <url>http://git.dos.softlab.ru/RSHB/EFR/common/auth-service</url>
+        <developerConnection>scm:git:git@git.dos.softlab.ru:RSHB/EFR/common/auth-service.git</developerConnection>
+        <tag>v7.0.0</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>coral</id>
+            <name>coral</name>
+            <url>http://coral:18088/repository/efr-common</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <efr.utilities.version>3.2.0</efr.utilities.version>
+        <efr.transport.version>2.1.0</efr.transport.version>
+        <efr.service.discovery.version>2.2.0</efr.service.discovery.version>
+        <dbo.support.version>0.0.1</dbo.support.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>coral</id>
+            <name>coral</name>
+            <url>http://coral:18088/repository/efr</url>
+        </repository>
+    </repositories>
+</project>

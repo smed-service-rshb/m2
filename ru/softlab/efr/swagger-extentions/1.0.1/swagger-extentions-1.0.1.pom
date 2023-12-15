@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>ru.softlab.efr.common</groupId>
+        <artifactId>efr-parent-pom</artifactId>
+        <version>2.0</version>
+    </parent>
+
+    <groupId>ru.softlab.efr</groupId>
+    <artifactId>swagger-extentions</artifactId>
+    <version>1.0.1</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>swagger-backend-generator</module>
+        <module>test-app</module>
+    </modules>
+
+    <scm>
+        <url>http://git.dos.softlab.ru/RSHB/EFR/utils/swagger-extentions</url>
+        <developerConnection>scm:git:git@git.dos.softlab.ru:RSHB/EFR/utils/swagger-extentions.git</developerConnection>
+        <tag>v1.0.1</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>coral</id>
+            <name>coral</name>
+            <url>http://coral:18088/repository/efr-common</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <swagger.codegen.version>2.3.1</swagger.codegen.version>
+        <services-transport.version>2.1.0</services-transport.version>
+        <common.utilities.version>3.1.1</common.utilities.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.fge</groupId>
+                <artifactId>jackson-coreutils</artifactId>
+                <version>1.6</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>coral</id>
+            <name>coral</name>
+            <url>http://coral:18088/repository/efr</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>my-plugin-repo</id>
+            <url>http://coral:18088/repository/efr-common</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>

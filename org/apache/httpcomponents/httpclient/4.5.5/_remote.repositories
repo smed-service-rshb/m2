@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri Aug 05 12:28:00 MSK 2022
+httpclient-4.5.5.pom>coral-efr=
+httpclient-4.5.5.jar>coral=
+httpclient-4.5.5.jar>coral-efr=
+httpclient-4.5.5.pom>coral=
